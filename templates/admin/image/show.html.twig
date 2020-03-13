@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<title>Image</title>
+
+{% block body %}
+    <h1>Image</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ image.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ image.title }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ image.image }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_image_index') }}">back to list</a>
+
+    <a href="{{ path('admin_image_edit', {'id': image.id}) }}">edit</a>
+
+    {{ include('admin_image/_delete_form.html.twig') }}
+{% endblock %}

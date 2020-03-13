@@ -1,0 +1,314 @@
+{% extends 'homebase.html.twig' %}
+{% block title %}{{data[0].title}}{% endblock %}
+{% block keywords%}{{ data[0].keywords }}{% endblock %}
+{% block description%}{{ data[0].description }}{% endblock %}
+{% block body %}
+
+
+{% include ('home/slider.html.twig') %}
+
+<!-- Start BEst Seller Area -->
+		<section class="wn__product__area brown--color pt--80  pb--30">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="section__title text-center">
+							<h2 class="title__be--2">Yeni <span class="color--theme">Ürünler</span></h2>
+							<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered lebmid alteration in some ledmid form</p>
+						</div>
+					</div>
+				</div>
+				<!-- Start YENI URUNLER Content -->
+				<div class="furniture--4 border--round arrows_style owl-carousel owl-theme row mt--50">
+			
+				
+			
+			{% for rs in newproduct %}
+					<!-- Start Single Product -->
+					<div class="product product__style--3">
+						<div class="col-lg-3 col-md-4 col-sm-6 col-12">
+							<div class="product__thumb">
+								<a class="first__img" href="{{path('product_show', {'id':rs.id})}}"><img src="{{asset('uploads/images/' ~ rs.image)}}" alt="product image" style="height:340px;width:270px;"></a>
+							
+								<div class="hot__box">
+									<span class="hot-label">BEST SALER</span>
+								</div>
+							</div>
+							<div class="product__content content--center content--center">
+								<h4><a href="single-product.html">{{rs.title}}</a></h4>
+								<ul class="prize d-flex">
+									<li>{{ rs.price }}₺</li>
+									<li >{{ rs.amount }} adet</li>
+								</ul>
+								<div class="action">
+									<div class="actions_inner">
+										<ul class="add_to_links">
+											<li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a></li>
+											<li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
+											<li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
+											<li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="product__hover--content">
+									<ul class="rating d-flex">
+										<li class="on"><i class="fa fa-star-o"></i></li>
+										<li class="on"><i class="fa fa-star-o"></i></li>
+										<li class="on"><i class="fa fa-star-o"></i></li>
+										<li><i class="fa fa-star-o"></i></li>
+										<li><i class="fa fa-star-o"></i></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<!-- Start Single Product -->
+					</div>
+			{% endfor %}
+
+
+				</div>
+				<!-- End YENI URUNLER Content -->
+			</div>
+		</section>
+		
+		<!-- End NEwsletter Area -->
+
+               <!-- Start Best Seller Area -->
+		<section class="wn__bestseller__area bg--white pt--80  pb--30">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="section__title text-center">
+							<h2 class="title__be--2">Bütün <span class="color--theme">Ürünler</span></h2>
+						</div>
+					</div>
+				</div>
+        			<div class="col-lg-12 col-12 order-1 order-lg-2">
+        				<div class="row">
+        					<div class="col-lg-12">
+								<div class="shop__list__wrapper d-flex flex-wrap flex-md-nowrap justify-content-between">
+									<div class="shop__list nav justify-content-center" role="tablist">
+			                            <a class="nav-item nav-link active" data-toggle="tab" href="#nav-grid" role="tab"><i class="fa fa-th"></i></a>
+			                            <a class="nav-item nav-link" data-toggle="tab" href="#nav-list" role="tab"><i class="fa fa-list"></i></a>
+			                        </div>
+			                        <p>Showing 1–12 of 40 results</p>
+			                        <div class="orderby__wrapper">
+			                        	<span>Sort By</span>
+			                        	<select class="shot__byselect">
+			                        		<option>Default sorting</option>
+			                        		<option>HeadPhone</option>
+			                        		<option>Furniture</option>
+			                        		<option>Jewellery</option>
+			                        		<option>Handmade</option>
+			                        		<option>Kids</option>
+			                        	</select>
+			                        </div>
+		                        </div>
+        					</div>
+        				</div>
+        				<div class="tab__container">
+	        				<div class="shop-grid tab-pane fade show active" id="nav-grid" role="tabpanel">
+	        					<div class="row">
+	        		
+	        						
+	        						<!-- Start Single Product -->
+									{% for rs in allproduct %}
+		        					<div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
+			        					<div class="product__thumb">
+											<a class="first__img" href="{{path('product_show', {'id':rs.id})}}"><img src="{{asset('uploads/images/' ~ rs.image)}}" alt="product image" style="height:340px;width:270px;"></a>
+											<div class="hot__box">
+												<span class="hot-label">BEST SALER</span>
+											</div>
+										</div>
+										<div class="product__content content--center content--center">
+											<h4><a href="single-product.html">{{rs.title}}</a></h4>
+											<ul class="prize d-flex">
+												<li>{{rs.price}}₺</li>
+												<li>{{ rs.amount }} adet</li>
+											</ul>
+											<div class="action">
+												<div class="actions_inner">
+													<ul class="add_to_links">
+														<li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a></li>
+														<li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
+														<li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
+														<li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
+													</ul>
+												</div>
+											</div>
+											<div class="product__hover--content">
+												<ul class="rating d-flex">
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+												</ul>
+											</div>
+										</div>
+		        					</div>
+									{% endfor %}
+		        					<!-- End Single Product -->
+	        					</div>
+	        					<ul class="wn__pagination">
+	        						<li class="active"><a href="#">1</a></li>
+	        						<li><a href="#">2</a></li>
+	        						<li><a href="#">3</a></li>
+	        						<li><a href="#">4</a></li>
+	        						<li><a href="#"><i class="zmdi zmdi-chevron-right"></i></a></li>
+	        					</ul>
+	        				</div>
+	        			
+        				</div>
+        			</div>
+				{# <div class="tab__container mt--60">
+
+					<!-- Start Single Tab Content -->
+					<div class="row single__tab tab-pane fade show active" id="nav-all" role="tabpanel">
+						<div class="product__indicator--4 arrows_style owl-carousel owl-theme">
+					
+							<div class="single__product">
+
+
+
+								
+								<!-- Start Single Product -->
+								<div class="col-lg-3 col-md-4 col-sm-6 col-12">
+									<div class="product product__style--3">
+									{% for rs in allproduct %}
+										<div class="product__thumb">
+											<a class="first__img" href="single-product.html"><img src="{{asset('uploads/images/' ~ rs.image)}}" alt="product image" style="height:340px;width:270px;"></a>
+											<div class="hot__box">
+												<span class="hot-label">BEST SALLER</span>
+											</div>
+										</div>
+										<div class="product__content content--center">
+											<h4><a href="single-product.html">1</a></h4>
+											<ul class="prize d-flex">
+												<li>{{ rs.price }} ₺</li>
+												<li class="old_prize">{{rs.amount}}</li>
+											</ul>
+											<div class="action">
+												<div class="actions_inner">
+													<ul class="add_to_links">
+														<li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a></li>
+														<li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
+														<li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
+														<li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
+													</ul>
+												</div>
+											</div>
+											<div class="product__hover--content">
+												<ul class="rating d-flex">
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+												</ul>
+											</div>
+										</div>
+								{% endfor %}
+
+									</div>
+								</div>
+								<!-- Start Single Product -->
+
+
+
+								<!-- Start Single Product -->
+								<div class="col-lg-3 col-md-4 col-sm-6 col-12">
+									<div class="product product__style--3">
+										<div class="product__thumb">
+											<a class="first__img" href="single-product.html"><img src="{{ asset('assets') }}/images/books/2.jpg" alt="product image"></a>
+											<a class="second__img animation1" href="single-product.html"><img src="{{ asset('assets') }}/images/books/7.jpg" alt="product image"></a>
+											<div class="hot__box">
+												<span class="hot-label">BEST SALLER</span>
+											</div>
+										</div>
+										<div class="product__content content--center">
+											<h4><a href="single-product.html">2</a></h4>
+											<ul class="prize d-flex">
+												<li>$40.00</li>
+												<li class="old_prize">$35.00</li>
+											</ul>
+											<div class="action">
+												<div class="actions_inner">
+													<ul class="add_to_links">
+														<li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a></li>
+														<li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
+														<li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
+														<li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
+													</ul>
+												</div>
+											</div>
+											<div class="product__hover--content">
+												<ul class="rating d-flex">
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- Start Single Product -->
+								
+								<!-- Start Single Product -->
+								<div class="col-lg-3 col-md-4 col-sm-6 col-12">
+									<div class="product product__style--3">
+										<div class="product__thumb">
+											<a class="first__img" href="single-product.html"><img src="{{ asset('assets') }}/images/books/2.jpg" alt="product image"></a>
+											<a class="second__img animation1" href="single-product.html"><img src="{{ asset('assets') }}/images/books/7.jpg" alt="product image"></a>
+											<div class="hot__box">
+												<span class="hot-label">BEST SALLER</span>
+											</div>
+										</div>
+										<div class="product__content content--center">
+											<h4><a href="single-product.html">3</a></h4>
+											<ul class="prize d-flex">
+												<li>$40.00</li>
+												<li class="old_prize">$35.00</li>
+											</ul>
+											<div class="action">
+												<div class="actions_inner">
+													<ul class="add_to_links">
+														<li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a></li>
+														<li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
+														<li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
+														<li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
+													</ul>
+												</div>
+											</div>
+											<div class="product__hover--content">
+												<ul class="rating d-flex">
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- Start Single Product -->
+							</div>
+						</div>
+					</div>
+					<!-- End Single Tab Content -->
+
+				
+						
+							</div>
+						</div>
+					</div>
+					<!-- End Single Tab Content -->
+				</div> #}
+			</div>
+		</section>
+		<!-- Start BEst Seller Area -->
+
+    {% endblock %}

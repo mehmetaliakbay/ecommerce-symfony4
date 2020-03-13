@@ -1,0 +1,114 @@
+{% extends 'adminbase.html.twig' %}
+{% block title %}Ürün Listesi
+{% endblock %}
+{% block body %}
+
+
+<SCRIPT language="JavaScript" type="text/javascript">
+	function openWin( windowURL, windowName,windowFeatures) { window.open(windowURL, windowName, windowFeatures); }
+</SCRIPT>
+
+	<div class="app-container">
+		<!-- begin app-nabar -->
+		<!-- end app-navbar -->
+		<!-- begin app-main -->
+			<div
+			class="app-main" id="main"> <!-- begin container-fluid -->
+			<div
+				class="container-fluid">
+				<!-- begin row -->
+				<div class="row">
+					<div
+						class="col-md-12 m-b-30">
+						<!-- begin page title -->
+						<div class="d-block d-sm-flex flex-nowrap align-items-center">
+							<div class="page-title mb-2 mb-sm-0">
+								<h1>Ürün Listesi</h1>
+
+							</div>
+							<div class="ml-auto d-flex align-items-center">
+								<nav>
+									<ol class="breadcrumb p-0 m-b-0">
+										<li class="breadcrumb-item">
+											<a href="/admin/">
+												<i class="ti ti-home"></i>
+											</a>
+										</li>
+										<li class="breadcrumb-item">
+											Index
+										</li>
+										<li class="breadcrumb-item active text-primary" aria-current="page">Ürünler</li>
+									</ol>
+								</nav>
+							</div>
+						</div>
+						<!-- end page title -->
+
+
+					</div>
+
+				</div>
+				<!-- end row -->
+
+				<!--start contact contant-->
+
+				<div class="row">
+
+
+					<table class="table table-light mb-0">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>Kategori</th>
+								<th>Title</th>
+								<th>Keywords</th>
+								<th>Description</th>
+								<th>Image</th>
+								<th>Price</th>
+								<th>Amount</th>
+								<th>Status</th>
+								<th>Gallery</th>
+								<th>actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for product in products %}
+								<tr>
+									<td>{{ product.id }}</td>
+									<td>{{ product.category }}</td>
+									<td>{{ product.title }}</td>
+									<td>{{ product.keywords }}</td>
+									<td>{{ product.description }}</td>
+									<td><img src="{{asset('uploads/images/'~product.image)}}" height="40"></td>
+									<td>{{ product.price }}</td>
+									<td>{{ product.amount }}</td>
+									<td>{{ product.status }}</td>
+									<td>
+										<a href="javascript:openWin('{{ path('admin_image_new',{'id':product.id}) }}','','toolbar=no,location=no,directories=0,status=no,top=50,left=100,menuBar=no,scrollBars=yes,resizable=no,width=900,height=700');">
+											<img src="{{asset('assets/admin/assets/img')}}/gallery.png" height="40">
+										</a>
+									</td>
+									<td>
+										<a class="btn btn-primary" href="{{ path('admin_product_show', {'id': product.id}) }}">show</a>
+										<a class="btn btn-warning" href="{{ path('admin_product_edit', {'id': product.id}) }}">edit</a>
+									</td>
+								</tr>
+							{% else %}
+								<tr>
+									<td colspan="10">no records found</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+
+					<a class="btn btn-info" href="{{ path('admin_product_new') }}">Create new</a>
+
+				</div>
+
+				<!--end contact contant-->
+			</div>
+			<!-- end container-fluid -->
+		</div>
+		<!-- end app-main -->
+	</div>
+{% endblock %}

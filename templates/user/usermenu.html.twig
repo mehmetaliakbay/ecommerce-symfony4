@@ -1,0 +1,27 @@
+<!-- Start Shop Page -->
+<div class="page-shop-sidebar left--sidebar bg--white section-padding--lg">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3 col-12 order-2 order-lg-1 md-mt-40 sm-mt-40">
+				<div class="shop__sidebar">
+					<aside class="wedget__categories poroduct--cat">
+						<h3 class="wedget__title">Kullanıcı Menüsü</h3>
+						<ul>
+							<li><img src="{{asset('uploads/images/'~ app.user.image)}}" height="80" style="margin:20px;"><span style="margin-right:10px;">{{app.user.name}}</span><span>{{app.user.surname}}</span></li>
+							<li></li>
+						</ul>
+						<ul>
+							<li><a href="/user">Profilim</a></li>
+							<li><a href="/user/shopping">Aldığım Ürünler</a></li>
+							<li><a href="/user/comments">Yorumlarim</a></li>
+							<li><a href="/logout">Cikis yap</a></li>
+
+						</ul>
+					</aside>
+				</div>
+			</div>
+			<div class="col-lg-9 col-12  order-lg-2">
+
+				<div class="tab__container">
+					<div class="shop-grid tab-pane fade show active">
+						<div class="row">

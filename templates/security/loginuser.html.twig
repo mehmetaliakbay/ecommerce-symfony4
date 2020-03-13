@@ -1,0 +1,99 @@
+{% extends 'homebase.html.twig' %}
+{% block title %}{% endblock %}
+{% block keywords%}{% endblock %}
+{% block description%}{% endblock %}
+{% block body %}
+	<!-- Start Bradcaump area -->
+	<div class="ht__bradcaump__area" style="background-image: url({{asset('assets/images/02.jpg')}}); background-position: center; background-size: cover;">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="bradcaump__inner text-center">
+						<h2>Hakkımızda</h2>
+						<nav class="bradcaump-content">
+							<ahref="/">Anasayfa</a>
+							<span>/</span>
+							<span class="breadcrumb_item active">Hakkımızda</span>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Bradcaump area -->
+
+	<!-- Start My Account Area -->
+	<section class="my_account_area pt--80 pb--55 bg--white">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-12">
+					<div class="my__account__wrapper">
+						<h3 class="account__title">Login</h3>
+						<form method="post">
+							{% if error %}
+								<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+							{% endif %}
+
+							{% if app.user %}
+								<div class="mb-3">
+									You are logged in as
+									{{ app.user.username }},
+									<a href="{{ path('app_logout') }}">Logout</a>
+								</div>
+							
+							{% else %}
+							<div class="account__form">
+								<div class="input__box">
+									<label for="email1">]Email address
+										<span>*</span>
+									</label>
+									<input type="email" value="{{ last_username }}" name="email" id="email1" required autofocus>
+								</div>
+								<div class="input__box">
+									<label for="inputPassword">Password<span>*</span>
+									</label>
+									<input type="password" name="password" id="inputPassword"  required>
+									<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+								</div>
+								<div class="form__btn">
+									<button>Login</button>
+								</div>
+							</div>
+						</form>
+						{% endif %}
+					</div>
+				</div>
+
+
+				{# <div class="col-lg-6 col-12">
+					<div class="my__account__wrapper">
+						<h3 class="account__title">Register</h3>
+						<form action="#">
+							<div class="account__form">
+								<div class="input__box">
+									<label>Email address
+										<span>*</span>
+									</label>
+									<input type="email">
+								</div>
+								<div class="input__box">
+									<label>Password<span>*</span>
+									</label>
+									<input type="password">
+								</div>
+								<div class="form__btn">
+									<button>Register</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div> #}
+
+
+			</div>
+		</div>
+	</section>
+	<!-- End My Account Area -->
+
+
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'adminbase.html.twig' %}
+{% block title %} Yorumlari Duzenle
+{% endblock %}
+{% block body %}
+	<div class="app-container">
+		<!-- begin app-nabar -->
+
+		<!-- end app-navbar -->
+		<!-- begin app-main -->
+			<div
+			class="app-main" id="main"> <!-- begin container-fluid -->
+			<div
+				class="container-fluid">
+				<!-- begin row -->
+				<div class="row">
+					<div
+						class="col-md-12 m-b-30">
+						<!-- begin page title -->
+						<div class="d-block d-sm-flex flex-nowrap align-items-center">
+							<div class="page-title mb-2 mb-sm-0">
+								<h1>Yorumlari Duzenle</h1>
+							</div>
+							<div class="ml-auto d-flex align-items-center">
+								<nav>
+									<ol class="breadcrumb p-0 m-b-0">
+										<li class="breadcrumb-item">
+											<a href="/admin/">
+												<i class="ti ti-home"></i>
+											</a>
+										</li>
+										<li class="breadcrumb-item">
+											Yorumlar
+										</li>
+										<li class="breadcrumb-item active text-primary" aria-current="page">Yorumlar Duzenle</li>
+									</ol>
+								</nav>
+							</div>
+						</div>
+						<!-- end page title -->
+
+
+					</div>
+
+				</div>
+				<!-- end row -->
+
+				<!--start contact contant-->
+
+
+					{{ include('admin/comment/_form.html.twig', {'button_label': 'Update'}) }}
+
+
+					{{ include('admin/comment/_delete_form.html.twig') }}
+					<br>
+					<br>
+					<a class="btn btn-dark" href="{{ path('admin_comment_index') }}">back to list</a>
+
+
+
+
+				<!--end contact contant-->
+			</div>
+			<!-- end container-fluid -->
+		</div>
+		<!-- end app-main -->
+	</div>
+{% endblock %}

@@ -1,0 +1,116 @@
+{% extends 'homebase.html.twig' %}
+{% block title %}{% endblock %}
+{% block keywords%}{% endblock %}
+{% block description%}{% endblock %}
+{% block body %}
+	<!-- Start Bradcaump area -->
+	<div class="ht__bradcaump__area" style="background-image: url({{asset('assets/images/02.jpg')}}); background-position: center; background-size: cover;">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="bradcaump__inner text-center">
+						<h2>İletişim</h2>
+						<nav class="bradcaump-content">
+							<ahref="/">Anasayfa</a>
+							<span>/</span>
+							<span class="breadcrumb_item active">İletişim</span>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Bradcaump area -->
+
+	<!-- Start Contact Area -->
+	<section class="wn_contact_area bg--white pt--80 pb--80">
+
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-12">
+					<div class="contact-form-wrap">
+						<h2 class="contact__title">İLETİŞİME GEÇ</h2>
+						<form id="contact-form" name="messages" method="post">
+							<div class="single-contact-form space-between">
+								<input type="text" id="messages_name" name="messages[name]" placeholder="First Name*">
+								<input type="text" id="messages_surname" name="messages[surname]" placeholder="Last Name*">
+							</div>
+							<div class="single-contact-form space-between">
+								<input type="email" id="messages_email" name="messages[email]" placeholder="Email*">
+							</div>
+							<div class="single-contact-form">
+								<input type="text" id="messages_subject" name="messages[subject]"  placeholder="Subject*">
+							</div>
+							<div class="single-contact-form message">
+								<textarea  name="messages[message]" id="messages_message"  placeholder="Type your message here.."></textarea>
+							</div>
+							<div class="contact-btn">
+                            <input type="hidden" name="token" value="{{ csrf_token('form-message') }}"/>
+								<button type="submit">Send Message</button>
+							</div>
+						</form>
+					</div>
+					<div class="form-output">
+						<p class="form-messege"></p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-12 md-mt-40 sm-mt-40">
+					<div class="wn__address">
+						<h2 class="contact__title">İletişime Geç</h2>
+						<p>{{ setting[0].contact | raw }}</p>
+						<div class="wn__addres__wreapper">
+
+							<div class="single__address">
+								<i class="icon-location-pin icons"></i>
+								<div class="content">
+									<span>address:</span>
+									<p>{{ setting[0].adress}}</p>
+								</div>
+							</div>
+
+							<div class="single__address">
+								<i class="icon-phone icons"></i>
+								<div class="content">
+									<span>Phone Number:</span>
+									<p>{{ setting[0].phone}}</p>
+								</div>
+							</div>
+
+							<div class="single__address">
+								<i class="icon-envelope icons"></i>
+								<div class="content">
+									<span>Email address:</span>
+									<p>{{ setting[0].email}}</p>
+								</div>
+							</div>
+
+							<div class="single__address">
+								<i class="icon-globe icons"></i>
+								<div class="content">
+									<span>facebook</span>
+									<p>{{ setting[0].facebook}}</p>
+								</div>
+							</div>
+							<div class="single__address">
+								<i class="icon-globe icons"></i>
+								<div class="content">
+									<span>twitter</span>
+									<p>{{ setting[0].twitter}}</p>
+								</div>
+							</div>
+							<div class="single__address">
+								<i class="icon-globe icons"></i>
+								<div class="content">
+									<span>instagram</span>
+									<p>{{ setting[0].instagram}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Contact Area -->
+
+{% endblock %}

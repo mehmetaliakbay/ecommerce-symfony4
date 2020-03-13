@@ -1,0 +1,48 @@
+{% extends 'homebase.html.twig' %}
+{% block title %}{% endblock %}
+{% block keywords%}{% endblock %}
+{% block description%}{% endblock %}
+ {% block body %}
+  <!-- Start Bradcaump area -->
+        <div class="ht__bradcaump__area" style="background-image: url({{asset('assets/images/02.jpg')}}); background-position: center; background-size: cover;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="bradcaump__inner text-center">
+                        	<h2>Hakkımızda</h2>
+                            <nav class="bradcaump-content">
+                              <ahref="/">Anasayfa</a>
+                              <span>/</span>
+                              <span class="breadcrumb_item active">Hakkımızda</span>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Bradcaump area -->
+
+        <!-- Start About Area -->
+        <div class="page-about about_area bg--white section-padding--lg">
+        	<div class="container">
+				<div class="row">
+        			<div class="col-lg-12">
+        				<div class="section__title--3 text-center pb--30">
+        					<h2>HAKKIMIZDA</h2>
+        					<p>the right people for your project</p>
+        				</div>
+        			</div>
+        		</div>
+        		<div class="row align-items-center">
+					<div class="col-lg-12 col-sm-12 col-12">
+        				<div class="content text-center text_style--2">
+    					    {{ setting[0].aboutus | raw}}
+        				</div>
+        			</div>
+        		
+        		</div>
+        	</div>
+        </div>
+        <!-- End About Area -->
+
+        {% endblock %}

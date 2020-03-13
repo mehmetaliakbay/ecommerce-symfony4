@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+        <title>{% block title %}{% endblock %}
+</title>
+        {% block head %}{% include('admin/admin/head.html.twig') %}{% endblock %}
+    
+    </head>
+    <body>
+     <!-- begin app -->
+    <div class="app">
+        <!-- begin app-wrap -->
+        <div class="app-wrap">
+        
+        {% block header %}{% include('admin/admin/header.html.twig') %}{% endblock %}
+        {% block sidebar %}{% include('admin/admin/sidebar.html.twig') %}{% endblock %}
+        {% block body %}{% endblock %}
+        {% block footer %}{% include('admin/admin/footer.html.twig') %}{% endblock %}
+
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

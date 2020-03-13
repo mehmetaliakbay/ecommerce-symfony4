@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+    <head>
+   	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>{% block title %}{% endblock %}</title>
+	<meta name="description" content="{% block description %}{% endblock %}">
+	<meta name="keywords" content="{% block keywords %}{% endblock %}">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+        {% block head %}{% include('home/head.html.twig') %}{% endblock %}
+    
+    </head>
+    <body>
+        {% block header %}{% include('home/header.html.twig') %}{% endblock %}
+        {% block body %}{% endblock %}
+        {% block footer %}{% include('home/footer.html.twig') %}{% endblock %}
+        {% block javascripts %}{% include('home/javascript.html.twig') %}{% endblock %}
+    </body>
+</html>

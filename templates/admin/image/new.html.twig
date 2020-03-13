@@ -1,0 +1,125 @@
+    <!-- app favicon -->
+    <link rel="shortcut icon"href="{{asset('assets')}}/admin/assets/img/favicon.ico">
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <!-- plugin stylesheets -->
+    <link rel="stylesheet" type="text/css"href="{{asset('assets')}}/admin/assets/css/vendors.css" />
+    <!-- app style -->
+    <link rel="stylesheet" type="text/css"href="{{asset('assets')}}/admin/assets/css/style.css" />
+
+
+<script>
+	WebFont.load({
+google: {
+"families": ["Lato:300,400,700,900"]
+},
+custom: {
+"families": [
+"Flaticon",
+"Font Awesome 5 Solid",
+"Font Awesome 5 Regular",
+"Font Awesome 5 Brands",
+"simple-line-icons"
+],
+urls: ['{{ asset('assets') }}/admin/assets/css/fonts.min.css']
+},
+active: function () {
+sessionStorage.fonts = true;
+}
+});
+</script>
+
+
+
+
+<div class="app-container">
+		<!-- begin app-nabar -->
+
+		<!-- end app-navbar -->
+		<!-- begin app-main -->
+			<div
+			class="app-main" id="main"> <!-- begin container-fluid -->
+			<div
+				class="container-fluid">
+				<!-- begin row -->
+				<div class="row">
+					<div
+						class="col-md-12 m-b-30">
+
+
+
+					</div>
+
+				</div>
+				<!-- end row -->
+
+				<!--start contact contant-->
+
+				<div class="row">
+
+		<form class="navbar-left" role="form" name="image" action="{{ path('admin_image_new', {'id':id}) }}" method="post" enctype="multipart/form-data">
+			<div class="form-group">
+				<label for="email2">Title</label>
+				<input type="text" class="form-control" id="image_title" name="image[title]" maxlength="50">
+				<input type="hidden" class="form-control" id="image_product" name="image[product]" value="{{id}}">
+			</div>
+
+			<div class="form-group">
+				<label for="deneme">Gallery Image</label>
+				<div class="custom-file">
+					<input type="file" class="form-control-file" id="image_image" name="image[image]">
+					<label class="custom-file-label" for="image_image">Choose File</label>
+
+				</div>
+			</div>
+
+			<div class="card-footer">
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</div>
+		</form>
+
+
+
+	<table class="table table-light mb-0">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Title</th>
+				<th>Image</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for image in images %}
+				<tr>
+					<td>{{ image.id }}</td>
+					<td>{{ image.title }}</td>
+					<td>
+						<img src="{{ asset('uploads/images/' ~ image.image) }}" height="40">
+					</td>
+					<td>
+						<form method="post" action="{{ path('admin_image_delete', {'id': image.id, 'pid': id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+							<input type="hidden" name="_method" value="DELETE">
+							<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ image.id) }}">
+							<button class="btn">Delete</button>
+						</form>
+
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="4">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	
+				</div>
+
+				<!--end contact contant-->
+			</div>
+			<!-- end container-fluid -->
+		</div>
+		<!-- end app-main -->
+	</div>

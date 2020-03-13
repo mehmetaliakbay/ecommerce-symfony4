@@ -1,0 +1,114 @@
+{% block body %}
+	<!DOCTYPE html>
+	<html lang="en">
+
+
+		<head>
+			<title>Admin Login</title>
+			<meta charset="utf-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+			<meta name="description" content="Admin template that can be used to build dashboards for CRM, CMS, etc."/>
+			<meta name="author" content="Potenza Global Solutions"/>
+			<meta
+			http-equiv="X-UA-Compatible" content="IE=edge"/>
+			<!-- app favicon -->
+			<link
+			rel="shortcut icon" href="{{asset('assets')}}/admin/assets/img/favicon.ico">
+			<!-- google fonts -->
+			<link
+			href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+			<!-- plugin stylesheets -->
+			<link
+			rel="stylesheet" type="text/css" href="{{asset('assets')}}/admin/assets/css/vendors.css"/>
+			<!-- app style -->
+			<link rel="stylesheet" type="text/css" href="{{asset('assets')}}/admin/assets/css/style.css"/>
+		</head>
+
+		<body>
+
+
+			<!-- begin app-main -->
+			<div
+				class="app-main" id="main">
+				<!-- begin container-fluid -->
+				<div
+					class="container-fluid">
+
+					<!--mail-Compose-contant-start-->
+					<div class="row account-contant">
+						<div class="col-9">
+							<div class="card card-statistics">
+								<div class="card-body p-0">
+									<div class="row no-gutters">
+										<div class="col-xl-3 pb-xl-0 pb-5 border-right">
+											<div class="page-account-profil pt-5">
+												<div class="profile-img text-center rounded-circle"></div>
+
+
+											</div>
+										</div>
+										<div class="col-xl-6 col-md-6 col-12 border-t border-right">
+											<div class="page-account-form">
+												<div class="form-titel border-bottom p-3">
+													<h5 class="mb-0 py-2">Admin Login</h5>
+												</div>
+												<div class="p-4">
+													<form method="post" action="/loginadmin">
+														{% if error %}
+															<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+														{% endif %}
+
+														{% if app.user %}
+															<div class="mb-3">
+																You are logged in as
+																{{ app.user.username }},
+																<a href="{{ path('app_logout') }}">Logout</a>
+															</div>
+														{% endif %}
+														<div class="form-row">
+
+
+															<div class="form-group col-md-12">
+																<label for="email1">Email</label>
+																<input type="email" value="{{ last_username }}" name="email" class="form-control" id="email1" required autofocus>
+															</div>
+															<div class="form-group col-md-12">
+																<label for="inputPassword">Password</label>
+																<input type="password" name="password" id="inputPassword" class="form-control" required>
+																<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+															</div>
+														</div>
+
+
+													</div>
+
+
+													<button type="submit" class="btn btn-primary">Login</button>
+												</form>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+
+							<!--mail-Compose-contant-end-->
+						</div>
+						<!-- end container-fluid -->
+					</div>
+					<!-- end app-main -->
+
+
+					<!-- plugins -->
+					<script src="{{asset('assets')}}/admin/assets/js/vendors.js"></script>
+
+					<!-- custom app -->
+					<script src="{{asset('assets')}}/admin/assets/js/app.js"></script>
+				</body>
+
+
+			</html>
+
+		{% endblock %}
+	</body>
+</html>

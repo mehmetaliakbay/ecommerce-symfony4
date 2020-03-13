@@ -1,0 +1,110 @@
+{% extends 'adminbase.html.twig' %}
+{% block title %}
+	{{ user.name }}
+	Kullanıcısı
+{% endblock %}
+{% block body %}
+	<div class="app-container">
+		<!-- begin app-nabar -->
+
+		<!-- end app-navbar -->
+		<!-- begin app-main -->
+			<div
+			class="app-main" id="main"> <!-- begin container-fluid -->
+			<div
+				class="container-fluid">
+				<!-- begin row -->
+				<div class="row">
+					<div
+						class="col-md-12 m-b-30">
+						<!-- begin page title -->
+						<div class="d-block d-sm-flex flex-nowrap align-items-center">
+							<div class="page-title mb-2 mb-sm-0">
+								<h1>{{ user.name }}
+									Kullanıcısı</h1>
+							</div>
+							<div class="ml-auto d-flex align-items-center">
+								<nav>
+									<ol class="breadcrumb p-0 m-b-0">
+										<li class="breadcrumb-item">
+											<a href="index.html">
+												<i class="ti ti-home"></i>
+											</a>
+										</li>
+										<li class="breadcrumb-item">
+											Index
+										</li>
+										<li class="breadcrumb-item active text-primary" aria-current="page">Kullanıcıyı Goster</li>
+									</ol>
+								</nav>
+							</div>
+						</div>
+						<!-- end page title -->
+
+
+					</div>
+
+				</div>
+				<!-- end row -->
+
+				<!--start contact contant-->
+
+				<div class="row">
+
+
+					<table class="table table-light mb-0">
+						<tbody>
+							<tr>
+								<th>Id</th>
+								<td>{{ user.id }}</td>
+							</tr>
+							<tr>
+								<th>Email</th>
+								<td>{{ user.email }}</td>
+							</tr>
+							<tr>
+								<th>Roles</th>
+								<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+							</tr>
+							<tr>
+								<th>Password</th>
+								<td>{{ user.password }}</td>
+							</tr>
+							<tr>
+								<th>Name</th>
+								<td>{{ user.name }}</td>
+							</tr>
+							<tr>
+								<th>Surname</th>
+								<td>{{ user.surname }}</td>
+							</tr>
+							<tr>
+								<th>Image</th>
+								<td>{{ user.image }}</td>
+							</tr>
+							<tr>
+								<th>Status</th>
+								<td>{{ user.status }}</td>
+							</tr>
+
+						</tbody>
+					</table>
+
+
+					<a class="btn btn-warning" href="{{ path('admin_user_edit', {'id': user.id}) }}">edit</a>
+
+					{{ include('admin/user/_delete_form.html.twig') }}
+					<br>
+					<br>
+					<a class="btn btn-dark" href="{{ path('admin_user_index') }}">back to list</a>
+
+
+				</div>
+
+				<!--end contact contant-->
+			</div>
+			<!-- end container-fluid -->
+		</div>
+		<!-- end app-main -->
+	</div>
+{% endblock %}

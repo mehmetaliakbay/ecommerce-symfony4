@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<title>Image index</title>
+
+{% block body %}
+    <h1>Image index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for image in images %}
+            <tr>
+                <td>{{ image.id }}</td>
+                <td>{{ image.title }}</td>
+                <td>{{ image.image }}</td>
+                <td>
+                    <a href="{{ path('admin_image_show', {'id': image.id}) }}">show</a>
+                    <a href="{{ path('admin_image_edit', {'id': image.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_image_new') }}">Create new</a>
+{% endblock %}

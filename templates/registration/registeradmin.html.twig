@@ -1,0 +1,96 @@
+{% block body %}
+	<!DOCTYPE html>
+	<html lang="en">
+
+
+		<head>
+			<title>Admin Login</title>
+			<meta charset="utf-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+			<meta name="description" content="Admin template that can be used to build dashboards for CRM, CMS, etc."/>
+			<meta name="author" content="Potenza Global Solutions"/>
+			<meta
+			http-equiv="X-UA-Compatible" content="IE=edge"/>
+			<!-- app favicon -->
+			<link
+			rel="shortcut icon" href="{{asset('assets')}}/admin/assets/img/favicon.ico">
+			<!-- google fonts -->
+			<link
+			href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+			<!-- plugin stylesheets -->
+			<link
+			rel="stylesheet" type="text/css" href="{{asset('assets')}}/admin/assets/css/vendors.css"/>
+			<!-- app style -->
+			<link rel="stylesheet" type="text/css" href="{{asset('assets')}}/admin/assets/css/style.css"/>
+		</head>
+
+		<body>
+
+
+			<!-- begin app-main -->
+			<div
+				class="app-main" id="main">
+				<!-- begin container-fluid -->
+				<div
+					class="container-fluid">
+
+					<!--mail-Compose-contant-start-->
+					<div class="row account-contant">
+						<div class="col-9">
+							<div class="card card-statistics">
+								<div class="card-body p-0">
+									<div class="row no-gutters">
+										<div class="col-xl-3 pb-xl-0 pb-5 border-right">
+											<div class="page-account-profil pt-5">
+												<div class="profile-img text-center rounded-circle"></div>
+
+
+											</div>
+										</div>
+										<div class="col-xl-6 col-md-6 col-12 border-t border-right">
+											<div class="page-account-form">
+												<div class="form-titel border-bottom p-3">
+													<h5 class="mb-0 py-2">Admin Register</h5>
+												</div>
+												<div class="p-4">
+
+													<form name="user1" method="post" enctype="multipart/form-data">
+														<div  class="form-group col-md-12">
+															<label for="user1_email" class="required">Email</label><input type="text" class="form-control" id="user1_email" name="user1[email]" required="required" maxlength="180"/></div>
+														<div class="form-group col-md-12">
+															<label for="user1_password" class="required">Password</label><input type="password" class="form-control" id="user1_password" name="user1[password]" required="required"/></div>
+														<div class="form-group col-md-12">
+															<label for="user1_name">Name</label><input type="text" class="form-control" id="user1_name" name="user1[name]" maxlength="50"/></div>
+														<div class="form-group col-md-12">
+															<label for="user1_surname">Surname</label><input type="text" class="form-control" id="user1_surname" name="user1[surname]" maxlength="20"/></div>
+
+														<button class="btn btn-primary">Register</button>
+														<input type="hidden" id="user1__token" name="user1[_token]" value="Kq-lm9IObLB1Hv_s94PSZmNIjofJXC03AkGX3APffKQ"/></form>
+												</form>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+
+							<!--mail-Compose-contant-end-->
+						</div>
+						<!-- end container-fluid -->
+					</div>
+					<!-- end app-main -->
+
+
+					<!-- plugins -->
+					<script src="{{asset('assets')}}/admin/assets/js/vendors.js"></script>
+
+					<!-- custom app -->
+					<script src="{{asset('assets')}}/admin/assets/js/app.js"></script>
+				</body>
+
+
+			</html>
+
+		</body>
+	</html>
+{% endblock %}

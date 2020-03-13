@@ -1,0 +1,80 @@
+{% extends 'homebase.html.twig' %}
+{% block title %}{% endblock %}
+{% block keywords%}{% endblock %}
+{% block description%}{% endblock %}
+{% block body %}
+	<!-- Start Bradcaump area -->
+	<div class="ht__bradcaump__area" style="background-image: url({{asset('assets/images/02.jpg')}}); background-position: center; background-size: cover;">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="bradcaump__inner text-center">
+						<h2>User Panel</h2>
+						<nav class="bradcaump-content">
+							<a href="/">Anasayfa</a>
+							<span>/</span>
+							<span class="breadcrumb_item active">User Panel</span>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Bradcaump area -->
+	{% include ('user/usermenu.html.twig') %}
+
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Product Name</th>
+				<th>Name</th>
+				<th>Surname</th>
+				<th>Email</th>
+				<th>Phone</th>
+				<th>Amount</th>
+				<th>Totalprice</th>
+				<th>Price</th>
+				<th>Message</th>
+				<th>Adress</th>
+				<th>Status</th>
+				<th>Created At</th>
+				<th>Action</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			{% for shopping in shoppings %}
+				<tr>
+
+					<td>
+						<a href="{{ path('product_show', {'id':shopping.productid}) }}">
+							{{ shopping.pname }}</a>
+					</td>
+					<td>{{ shopping.name }}</td>
+					<td>{{ shopping.surname }}</td>
+					<td>{{ shopping.email }}</td>
+					<td>{{ shopping.phone }}</td>
+					<td>{{ shopping.amount }}</td>
+					<td>{{ shopping.totalprice }}</td>
+					<td>{{ shopping.price }}</td>
+					<td>{{ shopping.message }}</td>
+					<td>{{ shopping.adress }}</td>
+					<td>{{ shopping.status }}</td>
+					<td>{{ shopping.created_at ? shopping.created_at|date('Y-m-d H:i:s') }}</td>
+
+					<td>
+						<a class="btn btn-primary" href="{{ path('user_shopping_show', {'id': shopping.id}) }}">show</a>
+					</td>
+
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="19">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+
+</div></div></div></div></div></div></div><!-- End Shop Page -->{% endblock %}

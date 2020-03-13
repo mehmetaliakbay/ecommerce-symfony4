@@ -1,0 +1,117 @@
+{% extends 'adminbase.html.twig' %}
+{% block title %}Shoppingler
+{% endblock %}
+{% block body %}
+	<div class="app-container">
+		<!-- begin app-nabar -->
+
+		<!-- end app-navbar -->
+		<!-- begin app-main -->
+			<div
+			class="app-main" id="main"> <!-- begin container-fluid -->
+			<div
+				class="container-fluid">
+				<!-- begin row -->
+				<div class="row">
+					<div
+						class="col-md-12 m-b-30">
+						<!-- begin page title -->
+						<div class="d-block d-sm-flex flex-nowrap align-items-center">
+							<div class="page-title mb-2 mb-sm-0">
+								<h1>Shoppingler</h1>
+
+							</div>
+							<div class="ml-auto d-flex align-items-center">
+								<nav>
+									<ol class="breadcrumb p-0 m-b-0">
+										<li class="breadcrumb-item">
+											<a href="/admin/">
+												<i class="ti ti-home"></i>
+											</a>
+										</li>
+										<li class="breadcrumb-item">
+											Index
+										</li>
+										<li class="breadcrumb-item active text-primary" aria-current="page">Shoppingler</li>
+									</ol>
+								</nav>
+							</div>
+						</div>
+						<!-- end page title -->
+					</div>
+
+				</div>
+				<!-- end row -->
+
+				<!--start contact contant-->
+
+				<div class="row">
+
+
+					<table class="table table-light mb-0">
+						<thead>
+							<tr>
+
+								<th>User Name</th>
+								<th>Product Name</th>
+								<th>Name</th>
+								<th>Surname</th>
+								<th>Email</th>
+								<th>Phone</th>
+								<th>Amount</th>
+								<th>Totalprice</th>
+								<th>Message</th>
+								<th>Adress</th>
+								<th>Status</th>
+								<th>Price</th>
+								<th>Created_at</th>
+								<th>actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for shopping in shoppings %}
+								<tr>
+
+									<td>
+										<a href="{{ path('admin_user_show', {'id': shopping.userid}) }}">
+											{{ shopping.uname }}</a>
+									</td>
+									<td>
+										<a href="{{ path('admin_product_show', {'id': shopping.productid}) }}">
+											{{ shopping.pname }}</td>
+									</td>
+									<td>{{ shopping.name }}</td>
+									<td>{{ shopping.surname }}</td>
+									<td>{{ shopping.email }}</td>
+									<td>{{ shopping.phone }}</td>
+									<td>{{ shopping.amount }}</td>
+									<td>{{ shopping.totalprice }}</td>
+									<td>{{ shopping.message }}</td>
+									<td>{{ shopping.adress }}</td>
+									<td>{{ shopping.status }}</td>
+									<td>{{ shopping.price }}</td>
+									<td>{{ shopping.created_at ? shopping.created_at|date('Y-m-d H:i:s') }}</td>
+									<td>
+										<a class="btn btn-primary" href="{{ path('admin_shopping_show', {'id': shopping.id}) }}">show</a>
+										<a class="btn btn-warning" href="{{ path('admin_shopping_edit', {'id': shopping.id}) }}">edit</a>
+									</td>
+								</tr>
+							{% else %}
+								<tr>
+									<td colspan="19">no records found</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+
+					<a class="btn btn-info" href="{{ path('admin_shopping_new') }}">Create new</a>
+
+				</div>
+
+				<!--end contact contant-->
+			</div>
+			<!-- end container-fluid -->
+		</div>
+		<!-- end app-main -->
+	</div>
+{% endblock %}

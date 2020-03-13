@@ -1,0 +1,157 @@
+{% extends 'adminbase.html.twig' %}
+{% block title %}
+	Ayarlari Goster
+{% endblock %}
+{% block body %}
+	<div class="app-container">
+		<!-- begin app-nabar -->
+
+		<!-- end app-navbar -->
+		<!-- begin app-main -->
+			<div
+			class="app-main" id="main"> <!-- begin container-fluid -->
+			<div
+				class="container-fluid">
+				<!-- begin row -->
+				<div class="row">
+					<div
+						class="col-md-12 m-b-30">
+						<!-- begin page title -->
+						<div class="d-block d-sm-flex flex-nowrap align-items-center">
+							<div class="page-title mb-2 mb-sm-0">
+								<h1>
+									Ayarlar Goster</h1>
+							</div>
+							<div class="ml-auto d-flex align-items-center">
+								<nav>
+									<ol class="breadcrumb p-0 m-b-0">
+										<li class="breadcrumb-item">
+											<a href="index.html">
+												<i class="ti ti-home"></i>
+											</a>
+										</li>
+										<li class="breadcrumb-item">
+											Index
+										</li>
+										<li class="breadcrumb-item active text-primary" aria-current="page">Kategorileri Goster</li>
+									</ol>
+								</nav>
+							</div>
+						</div>
+						<!-- end page title -->
+
+
+					</div>
+
+				</div>
+				<!-- end row -->
+
+				<!--start contact contant-->
+
+				<div class="row">
+
+
+					<table class="table table-light mb-0">
+						<tbody>
+							<tr>
+								<th>Id</th>
+								<td>{{ setting.id }}</td>
+							</tr>
+							<tr>
+								<th>Title</th>
+								<td>{{ setting.title }}</td>
+							</tr>
+							<tr>
+								<th>Keywords</th>
+								<td>{{ setting.keywords }}</td>
+							</tr>
+							<tr>
+								<th>Description</th>
+								<td>{{ setting.description }}</td>
+							</tr>
+							<tr>
+								<th>Company</th>
+								<td>{{ setting.company }}</td>
+							</tr>
+							<tr>
+								<th>Adress</th>
+								<td>{{ setting.adress }}</td>
+							</tr>
+							<tr>
+								<th>Phone</th>
+								<td>{{ setting.phone }}</td>
+							</tr>
+							<tr>
+								<th>Fax</th>
+								<td>{{ setting.fax }}</td>
+							</tr>
+							<tr>
+								<th>Email</th>
+								<td>{{ setting.email }}</td>
+							</tr>
+							<tr>
+								<th>Smtpserver</th>
+								<td>{{ setting.smtpserver }}</td>
+							</tr>
+							<tr>
+								<th>Smtpemail</th>
+								<td>{{ setting.smtpemail }}</td>
+							</tr>
+							<tr>
+								<th>Smtppassword</th>
+								<td>{{ setting.smtppassword }}</td>
+							</tr>
+							<tr>
+								<th>Smtpport</th>
+								<td>{{ setting.smtpport }}</td>
+							</tr>
+							<tr>
+								<th>Facebook</th>
+								<td>{{ setting.facebook }}</td>
+							</tr>
+							<tr>
+								<th>Instagram</th>
+								<td>{{ setting.instagram }}</td>
+							</tr>
+							<tr>
+								<th>Twitter</th>
+								<td>{{ setting.twitter }}</td>
+							</tr>
+							<tr>
+								<th>Aboutus</th>
+								<td>{{ setting.aboutus | raw}}</td>
+							</tr>
+							<tr>
+								<th>Contact</th>
+								<td>{{ setting.contact | raw}}</td>
+							</tr>
+							<tr>
+								<th>Reference</th>
+								<td>{{ setting.reference | raw}}</td>
+							</tr>
+							<tr>
+								<th>Status</th>
+								<td>{{ setting.status }}</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<br>
+					<br>
+					<a class="btn btn-warning" href="{{ path('admin_setting_edit', {'id': setting.id}) }}">edit</a>
+
+					{{ include('admin/setting/_delete_form.html.twig') }}
+					<br>
+					<br>
+					<a class="btn btn-dark" href="{{ path('admin_setting_index') }}">back to list</a>
+
+
+				</div>
+
+				<!--end contact contant-->
+			</div>
+			<!-- end container-fluid -->
+		</div>
+		<!-- end app-main -->
+	</div>
+{% endblock %}

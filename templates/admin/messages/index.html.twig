@@ -1,0 +1,101 @@
+{% extends 'adminbase.html.twig' %}
+{% block title %}Mesaj Listesi
+{% endblock %}
+{% block body %}
+	<div class="app-container">
+		<!-- begin app-nabar -->
+
+		<!-- end app-navbar -->
+		<!-- begin app-main -->
+			<div
+			class="app-main" id="main"> <!-- begin container-fluid -->
+			<div
+				class="container-fluid">
+				<!-- begin row -->
+				<div class="row">
+					<div
+						class="col-md-12 m-b-30">
+						<!-- begin page title -->
+						<div class="d-block d-sm-flex flex-nowrap align-items-center">
+							<div class="page-title mb-2 mb-sm-0">
+								<h1>Mesajlar</h1>
+
+							</div>
+							<div class="ml-auto d-flex align-items-center">
+								<nav>
+									<ol class="breadcrumb p-0 m-b-0">
+										<li class="breadcrumb-item">
+											<a href="/admin/">
+												<i class="ti ti-home"></i>
+											</a>
+										</li>
+										<li class="breadcrumb-item">
+											Index
+										</li>
+										<li class="breadcrumb-item active text-primary" aria-current="page">Mesajlar</li>
+									</ol>
+								</nav>
+							</div>
+						</div>
+						<!-- end page title -->
+
+
+					</div>
+
+				</div>
+				<!-- end row -->
+
+				<!--start contact contant-->
+
+				<div class="row">
+
+
+					<table class="table table-light mb-0">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>Name</th>
+								<th>Subject</th>
+								<th>Message</th>
+								<th>Status</th>
+								<th>Ip</th>
+								<th>Note</th>
+								<th>Email</th>
+								<th>actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for message in messages %}
+								<tr>
+									<td>{{ message.id }}</td>
+									<td>{{ message.name }}</td>
+									<td>{{ message.subject }}</td>
+									<td>{{ message.message }}</td>
+									<td>{{ message.status }}</td>
+									<td>{{ message.ip }}</td>
+									<td>{{ message.note }}</td>
+									<td>{{ message.email }}</td>
+									<td>
+										<a class="btn btn-primary" href="{{ path('admin_messages_show', {'id': message.id}) }}">show</a>
+										<a class="btn btn-warning" href="{{ path('admin_messages_edit', {'id': message.id}) }}">edit</a>
+									</td>
+								</tr>
+							{% else %}
+								<tr>
+									<td colspan="10">no records found</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+
+					<a class="btn btn-info" href="{{ path('admin_messages_new') }}">Create new</a>
+
+				</div>
+
+				<!--end contact contant-->
+			</div>
+			<!-- end container-fluid -->
+		</div>
+		<!-- end app-main -->
+	</div>
+{% endblock %}

@@ -1,0 +1,138 @@
+{% extends 'adminbase.html.twig' %}
+{% block title %}
+	{{ product.title }}
+	Ürünü Göster
+
+{% endblock %}
+{% block body %}
+	<div class="app-container">
+		<!-- begin app-nabar -->
+
+		<!-- end app-navbar -->
+		<!-- begin app-main -->
+			<div
+			class="app-main" id="main"> <!-- begin container-fluid -->
+			<div
+				class="container-fluid">
+				<!-- begin row -->
+				<div class="row">
+					<div
+						class="col-md-12 m-b-30">
+						<!-- begin page title -->
+						<div class="d-block d-sm-flex flex-nowrap align-items-center">
+							<div class="page-title mb-2 mb-sm-0">
+								<h1>{{ product.title }}
+									Ürünü Göster
+								</h1>
+							</div>
+							<div class="ml-auto d-flex align-items-center">
+								<nav>
+									<ol class="breadcrumb p-0 m-b-0">
+										<li class="breadcrumb-item">
+											<a href="index.html">
+												<i class="ti ti-home"></i>
+											</a>
+										</li>
+										<li class="breadcrumb-item">
+											Ürünler
+										</li>
+										<li class="breadcrumb-item active text-primary" aria-current="page">
+											Ürünü Göster
+										</li>
+									</ol>
+								</nav>
+							</div>
+						</div>
+						<!-- end page title -->
+
+
+					</div>
+
+				</div>
+				<!-- end row -->
+
+				<!--start contact contant-->
+
+				<div class="row">
+					<table class="table table-light mb-0">
+						<tbody>
+							<tr>
+								<th>Id</th>
+								<td>{{ product.id }}</td>
+							</tr>
+							<tr>
+								<th>Title</th>
+								<td>{{ product.title }}</td>
+							</tr>
+							<tr>
+								<th>Keywords</th>
+								<td>{{ product.keywords }}</td>
+							</tr>
+							<tr>
+								<th>Description</th>
+								<td>{{ product.description }}</td>
+							</tr>
+							<tr>
+								<th>Image</th>
+								<td><img src="{{asset('uploads/images/'~product.image)}}" height="40"></td>
+							</tr>
+							<tr>
+								<th>Status</th>
+								<td>{{ product.status }}</td>
+							</tr>							<tr>
+								<th>Price</th>
+								<td>{{ product.price }}</td>
+							</tr>							<tr>
+								<th>Amount</th>
+								<td>{{ product.amount }}</td>
+							</tr>
+							<tr>
+								<th>Star</th>
+								<td>{{ product.star }}</td>
+							</tr>
+							<tr>
+								<th>Phone</th>
+								<td>{{ product.phone }}</td>
+							</tr>
+							<tr>
+								<th>Fax</th>
+								<td>{{ product.fax }}</td>
+							</tr>
+							<tr>
+								<th>Email</th>
+								<td>{{ product.email }}</td>
+							</tr>
+							<tr>
+								<th>City</th>
+								<td>{{ product.city }}</td>
+							</tr>
+							<tr>
+								<th>Country</th>
+								<td>{{ product.country }}</td>
+							</tr>
+							<tr>
+								<th>Location</th>
+								<td>{{ product.location }}</td>
+							</tr>
+
+						</tbody>
+					</table>
+
+
+					<a class="btn btn-warning" href="{{ path('admin_product_edit', {'id': product.id}) }}">edit</a>
+
+					{{ include('admin/product/_delete_form.html.twig') }}
+					<br>
+					<br>
+					<a class="btn btn-dark" href="{{ path('admin_product_index') }}">back to list</a>
+
+
+				</div>
+
+				<!--end contact contant-->
+			</div>
+			<!-- end container-fluid -->
+		</div>
+		<!-- end app-main -->
+	</div>
+{% endblock %}

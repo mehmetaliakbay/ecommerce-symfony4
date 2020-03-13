@@ -1,0 +1,83 @@
+{% extends 'homebase.html.twig' %}
+{% block title %}{% endblock %}
+{% block keywords%}{% endblock %}
+{% block description%}{% endblock %}
+{% block body %}
+	<!-- Start Bradcaump area -->
+	<div class="ht__bradcaump__area" style="background-image: url({{asset('assets/images/02.jpg')}}); background-position: center; background-size: cover;">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="bradcaump__inner text-center">
+						<h2>User Panel</h2>
+						<nav class="bradcaump-content">
+							<a href="/">Anasayfa</a>
+							<span>/</span>
+							<span class="breadcrumb_item active">User Panel</span>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Bradcaump area -->
+	{% include ('user/usermenu.html.twig') %}
+
+	<div class="container">
+		<div class="blog-details content">
+			<div class="comment_respond">
+				<h3 class="reply_title">Alacağınız Ürün =>
+					{{ product.title }}</h3>
+				<h6>Fiyat =
+					{{ product.price }}
+					₺</h6>
+				<h6>Miktar =
+					{{ amount }}
+					tane
+				</h6>
+				<h6>Total =
+					{{ total }}
+					₺</h6>
+				<br>
+				{{ include('notifications.html.twig') }}
+				<form method="post" name="shopping" class="comment__form">
+					<div class="input__wrapper clearfix">
+						<div class="input__box  one--third">
+							<input type="text" id="shopping_name" name="shopping[name]" placeholder="{{app.user.name}}">
+						</div>
+						<div class="input__box  one--third">
+							<input type="text" id="shopping_surname" name="shopping[surname]" placeholder="{{app.user.surname}}">
+						</div>
+
+						<div class="input__box  one--third">
+							<input type="text" id="shopping_email" name="shopping[email]" placeholder="{{app.user.email}}">
+						</div>
+
+					</div><br>
+					<div class="input__wrapper clearfix">
+						<div class="input__box  one--third">
+							<input type="text" id="shopping_email" name="shopping[phone]" placeholder="Phone Number">
+						</div>
+					</div><br>
+
+					<div class="input__box">
+						<textarea name="shopping[message]" placeholder="Yorumunuzu yazin"></textarea>
+					</div>
+					<div class="input__box">
+						<textarea name="shopping[adress]" placeholder="Adresinizi yazin"></textarea>
+					</div>
+					<input type="hidden" name="token" value="{{csrf_token('form-shopping')}}"/>
+					<input type="hidden" name="amount" value="{{ amount }}"/>
+
+					<div class="addtocart__actions">
+						<button class="tocart" type="submit" title="Satin Al">Satin Al</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	{# {{ include('admin/shopping/_form.html.twig', {'button_label': 'Update'}) }} #}
+
+
+</div></div></div></div></div></div></div><!-- End Shop Page -->{% endblock %}

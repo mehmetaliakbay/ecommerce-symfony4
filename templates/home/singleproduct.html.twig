@@ -1,0 +1,221 @@
+{% extends 'homebase.html.twig' %}
+{% block title %}
+	{{product.title}}
+{% endblock %}
+{% block keywords%}
+	{{ product.keywords }}
+{% endblock %}
+{% block description%}
+	{{ product.description }}
+{% endblock %}
+{% block body %}
+	<!-- Start Bradcaump area -->
+	<div class="ht__bradcaump__area" style="background-image: url({{asset('assets/images/02.jpg')}}); background-position: center; background-size: cover;">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="bradcaump__inner text-center">
+						<h2>Shop Single</h2>
+						<nav class="bradcaump-content">
+							<ahref="index.html">Home</a>
+							<span>/</span>
+							<span class="breadcrumb_item active">Shop Single</span>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Bradcaump area -->
+	<!-- Start main Content -->
+	<div class="maincontent bg--white pt--80 pb--55">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-9 col-12">
+					<div class="wn__single__product">
+						<div class="row">
+							<div class="col-lg-6 col-12">
+								<div class="wn__fotorama__wrapper">
+									<div class="fotorama wn__fotorama__action" data-nav="thumbs">
+										<a href="1.jpg"><img src="{{asset('uploads/images/' ~ product.image)}}" alt=""></a>
+
+										{% for rs in image %}
+											<a href="1.jpg"><img src="{{asset('uploads/images/' ~ rs.image)}}" alt=""></a>
+										{% endfor %}
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6 col-12">
+								<div class="product__info__main">
+									<h1>{{ product.title }}</h1>
+									<div class="product-reviews-summary d-flex">
+										<ul class="rating-summary d-flex">
+											<li>
+												<i class="zmdi zmdi-star-outline"></i>
+											</li>
+											<li>
+												<i class="zmdi zmdi-star-outline"></i>
+											</li>
+											<li>
+												<i class="zmdi zmdi-star-outline"></i>
+											</li>
+											<li class="off">
+												<i class="zmdi zmdi-star-outline"></i>
+											</li>
+											<li class="off">
+												<i class="zmdi zmdi-star-outline"></i>
+											</li>
+										</ul>
+									</div>
+									<div class="price-box">
+										<span>{{product.price}}₺</span>
+									</div>
+									<div class="product__overview">
+										<p>{{ product.description }}</p>
+									</div>
+									<div class="box-tocart d-flex">
+										<form action="{{ path('user_shopping_new', {'pid':product.id}) }}" method="post">
+											<span>Qty</span>
+											<input id="qty" class="input-text qty" name="amount" min="1" value="1" title="Qty" type="number">
+											<div class="addtocart__actions">
+												<button class="tocart" type="submit" title="Add to Cart">Add to Cart</button>
+											</div>
+										</form>
+									</div>
+									<div class="product_meta">
+										<span class="posted_in">Categories:
+											<a href="#">Adventure</a>,
+											<a href="#">Kids' Music</a>
+										</span>
+									</div>
+									<div class="product-share">
+										<ul>
+											<li class="categories-title">Share :</li>
+											<li>
+												<a href="#">
+													<i class="icon-social-twitter icons"></i>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<i class="icon-social-tumblr icons"></i>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<i class="icon-social-facebook icons"></i>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<i class="icon-social-linkedin icons"></i>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="product__info__detailed">
+						<div class="pro_details_nav nav justify-content-start" role="tablist">
+							<a class="nav-item nav-link active" data-toggle="tab" href="#nav-details" role="tab">Details</a>
+							<a class="nav-item nav-link" data-toggle="tab" href="#nav-review" role="tab">Reviews</a>
+						</div>
+						<div
+							class="tab__container">
+							<!-- Start Single Tab Content -->
+							<div class="pro__tab_label tab-pane fade show active" id="nav-details" role="tabpanel">
+								<div class="description__attribute">
+									<p>{{ product.detail | raw}}</p>
+
+								</div>
+							</div>
+							<!-- End Single Tab Content -->
+							<!-- Start Single Tab Content -->
+							<div class="pro__tab_label tab-pane fade" id="nav-review" role="tabpanel">
+								<div class="page-blog-details section-padding--lg bg--white">
+									<div class="container">
+										<div class="row">
+											<div class="col-lg-9 col-12">
+												<div class="blog-details content">
+
+													<div class="comments_area">
+														<h3 class="comment__title">Comments</h3>
+														<ul class="comment__list">
+															{% for rs in comments %}
+																<li>
+																	<div class="wn__comment">
+																		<div class="thumb">
+																			<img src="{{ asset('assets') }}/images/blog/comment/1.jpeg" alt="comment images">
+																		</div>
+																		<div class="content">
+																			<div class="comnt__author d-block d-sm-flex">
+																				<span>
+																					<a href="#">Admin</a>
+																				</span>
+																				<span>October 6, 2014 at 9:26 am</span>
+
+																			</div>
+																			<p>{{rs.subject }}</p>
+																			<p>{{rs.comment }}</p>
+																		</div>
+																	</div>
+																</li>
+															{% endfor %}
+
+														</ul>
+													</div>
+													{% if app.user %}
+														<div class="comment_respond">
+															<h3 class="reply_title">Leave a Reply
+
+															</h3>
+
+															{{ include('notifications.html.twig') }}
+															<form name="comment" method="post" action="{{ path('user_new_comment', {'id':product.id}) }}" class="comment__form">
+
+																<div class="input__wrapper clearfix">
+																	<div class="input__box name one--third">
+																		<input name="comment[subject]" type="text" placeholder="Konu">
+																	</div>
+																</div><br>
+																<div class="input__box">
+																	<textarea name="comment[comment]" placeholder="Your comment here"></textarea>
+																</div>
+																<input type="hidden" name="token" value="{{csrf_token('comment')}}"/>
+
+																<div class="addtocart__actions">
+																	<button class="tocart" type="submit" title="Messaji Gonder">Mesaji Gonder</button>
+																</div>
+
+															</form>
+														{% else %}
+															<div class="comment-form-wrap pt-5">
+																<h3 class="mb-5">Yorum bırakmak için lütfen giriş yapın</h3>
+															</div>
+															<h4>
+																<a href="/loginuser">Login</a>
+															</h4>
+														{% endif %}
+
+													</div>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+
+							</div>
+							<!-- End Single Tab Content -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br>
+		<br>
+		<br>
+		<br>
+	{% endblock %}

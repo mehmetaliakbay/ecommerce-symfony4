@@ -1,0 +1,40 @@
+{% for label, flashes in app.session.flashbag.all %}
+	{% for flash in flashes %}
+		{% if (label=='success') %}
+			<div class="alert alert-success alert-dismissible">
+				<button type="button" class="class" data-dismiss="alert" aria-hidden="true">x</button>
+				<h4>
+					<i class="icon fa fa-check"></i>Basarili</h4>
+				{{ flash|raw }}
+			</div>
+
+		{% elseif (label=='error') %}
+			<div class="alert alert-danger">
+				<strong>
+					Error!</strong>
+				{{ flash|raw }}
+			</div>
+		{% elseif (label=='info') %}
+			<div class="alert alert-danger">
+				<strong>
+					Error!</strong>
+				{{ flash|raw }}
+			</div>
+
+		{% elseif (label=='warning') %}
+			<div class="alert alert-danger">
+				<strong>
+					Error!</strong>
+				{{ flash|raw }}
+			</div>
+
+		{% elseif (label=='warning') %}
+			<div class="alert alert-warning alert-dismissible">
+				<button type="button" class="class" data-dismiss="alert" aria-hidden="true">x</button>
+				<h4>
+					<i class="icon fa fa-warning"></i>Uyari !</h4>
+				{{ flash|raw }}
+			</div>
+		{% endif %}
+	{% endfor %}
+{% endfor %}

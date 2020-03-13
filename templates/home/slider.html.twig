@@ -1,0 +1,28 @@
+ <!-- Start Slider area -->
+        <div class="slider-area brown__nav slider--15 slide__activation slide__arrow01 owl-carousel owl-theme">
+        	
+			{% for rs in slider %}
+			<!-- Start Single Slide -->
+			
+	        <div class="slide animation__style10 fullscreen align__center--left" style="background-image: url({{asset('uploads/images/' ~ rs.image)}}); background-position: center; background-size: cover;">
+	            <div class="container">
+	            	<div class="row">
+	            		<div class="col-lg-12">
+	            			<div class="slider__content">
+		            			<div class="contentbox">
+		            				<h2>Satın al <span>Beğendiğin </span></h2>
+		            				<h2>favori <span>{{ rs.title }} </span></h2>
+		            				<h2>şimdi <span>Burada </span></h2>
+				                   	<a class="shopbtn" href="{{ path('product_show', {'id':rs.id})}}">Şimdi Al</a>
+		            			</div>
+	            			</div>
+	            		</div>
+	            	</div>
+	            </div>
+            </div>
+            <!-- End Single Slide -->
+        	
+			{% endfor %}
+
+
+        </div>

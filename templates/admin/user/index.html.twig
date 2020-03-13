@@ -1,0 +1,101 @@
+{% extends 'adminbase.html.twig' %}
+{% block title %}Kullanıcı Listesi
+{% endblock %}
+{% block body %}
+	<div class="app-container">
+		<!-- begin app-nabar -->
+
+		<!-- end app-navbar -->
+		<!-- begin app-main -->
+			<div
+			class="app-main" id="main"> <!-- begin container-fluid -->
+			<div
+				class="container-fluid">
+				<!-- begin row -->
+				<div class="row">
+					<div
+						class="col-md-12 m-b-30">
+						<!-- begin page title -->
+						<div class="d-block d-sm-flex flex-nowrap align-items-center">
+							<div class="page-title mb-2 mb-sm-0">
+								<h1>Kullanıcılar</h1>
+
+							</div>
+							<div class="ml-auto d-flex align-items-center">
+								<nav>
+									<ol class="breadcrumb p-0 m-b-0">
+										<li class="breadcrumb-item">
+											<a href="/admin/">
+												<i class="ti ti-home"></i>
+											</a>
+										</li>
+										<li class="breadcrumb-item">
+											Index
+										</li>
+										<li class="breadcrumb-item active text-primary" aria-current="page">Kullanıcılar</li>
+									</ol>
+								</nav>
+							</div>
+						</div>
+						<!-- end page title -->
+
+
+					</div>
+
+				</div>
+				<!-- end row -->
+
+				<!--start contact contant-->
+
+				<div class="row">
+
+
+					<table class="table table-light mb-0">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>email</th>
+								<th>Roles</th>
+								<th>name</th>
+								<th>surname</th>
+								<th>image</th>
+								<th>status</th>
+
+								<th>actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for user in users %}
+								<tr>
+									<td>{{ user.id }}</td>
+									<td>{{ user.email }}</td>
+									<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+									<td>{{ user.name }}</td>
+									<td>{{ user.surname }}</td>
+									<td>{{ user.image }}</td>
+									<td>{{ user.status }}</td>
+
+									<td>
+										<a class="btn btn-primary" href="{{ path('admin_user_show', {'id': user.id}) }}">show</a>
+										<a class="btn btn-warning" href="{{ path('admin_user_edit', {'id': user.id}) }}">edit</a>
+									</td>
+								</tr>
+							{% else %}
+								<tr>
+									<td colspan="10">no records found</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+
+					<a class="btn btn-info" href="{{ path('admin_user_new') }}">Create new</a>
+
+				</div>
+
+				<!--end contact contant-->
+			</div>
+			<!-- end container-fluid -->
+		</div>
+		<!-- end app-main -->
+	</div>
+{% endblock %}

@@ -1,0 +1,104 @@
+{% extends 'adminbase.html.twig' %}
+{% block title %}Yorumlar Listesi
+{% endblock %}
+{% block body %}
+	<div class="app-container">
+		<!-- begin app-nabar -->
+
+		<!-- end app-navbar -->
+		<!-- begin app-main -->
+			<div
+			class="app-main" id="main"> <!-- begin container-fluid -->
+			<div
+				class="container-fluid">
+				<!-- begin row -->
+				<div class="row">
+					<div
+						class="col-md-12 m-b-30">
+						<!-- begin page title -->
+						<div class="d-block d-sm-flex flex-nowrap align-items-center">
+							<div class="page-title mb-2 mb-sm-0">
+								<h1>Yorumlar</h1>
+
+							</div>
+							<div class="ml-auto d-flex align-items-center">
+								<nav>
+									<ol class="breadcrumb p-0 m-b-0">
+										<li class="breadcrumb-item">
+											<a href="/admin/">
+												<i class="ti ti-home"></i>
+											</a>
+										</li>
+										<li class="breadcrumb-item">
+											Index
+										</li>
+										<li class="breadcrumb-item active text-primary" aria-current="page">Yorumlar</li>
+									</ol>
+								</nav>
+							</div>
+						</div>
+						<!-- end page title -->
+
+
+					</div>
+
+				</div>
+				<!-- end row -->
+
+				<!--start contact contant-->
+
+				<div class="row">
+
+
+					<table class="table table-light mb-0">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>Subject</th>
+								<th>Comment</th>
+								<th>Status</th>
+								<th>Ip</th>
+								<th>Title</th>
+								{#<th>Created_at</th>#}
+								<th>actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for comment in comments %}
+								<td>{{ comment.id }}</td>
+								<td>{{ comment.subject }}</td>
+								<td>{{ comment.comment }}</td>
+								<td>{{ comment.status }}</td>
+								<td>{{ comment.ip }}</td>
+								<td>
+									<a href="{{ path('product_show', {'id':comment.productid}) }}">
+										{{ comment.title }}</a>
+								</td>
+								<td>
+									<a href="{{ path('admin_user_show', {'id':comment.userid}) }}">
+										{{ comment.name }}</a>
+								</td>
+								{#<td>{{ comment.created_at }}</td>#}
+								<td>
+									<a class="btn btn-primary" href="{{ path('admin_comment_show', {'id': comment.id}) }}">show</a>
+									<a class="btn btn-warning" href="{{ path('admin_comment_edit', {'id': comment.id}) }}">edit</a>
+								</td>
+							</tr>
+						{% else %}
+							<tr>
+								<td colspan="10">no records found</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+
+				<a class="btn btn-info" href="{{ path('admin_comment_new') }}">Create new</a>
+
+			</div>
+
+			<!--end contact contant-->
+		</div>
+		<!-- end container-fluid -->
+	</div>
+	<!-- end app-main -->
+</div>{% endblock %}
